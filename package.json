@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "@googleapis/youtube": "^2.0.0",
+    "redis": "^4.0.0",
+    "tinyduration": "^3.2.2",
     "v-lazy-image": "^2.0.1",
     "vue": "^3.2.16"
   },
