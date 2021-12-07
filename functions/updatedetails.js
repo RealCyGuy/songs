@@ -2,8 +2,8 @@ exports.handler = async function (event, context) {
   if (event.queryStringParameters.secret !== process.env.SECRET) {
     return {
       statusCode: 403,
-      body: 'Forbidden',
-    }
+      body: "Forbidden",
+    };
   }
 
   const google = require("@googleapis/youtube");
@@ -16,31 +16,24 @@ exports.handler = async function (event, context) {
   });
   const redis = createClient({ url: process.env.REDIS_URL });
 
+  await redis.connect();
+  var rawItems = await redis.get("rawItems");
+  rawItems = JSON.parse(rawItems);
+
   var items = [];
-  var nextPageToken = true;
   var duration = 0;
-  while (nextPageToken) {
-    if (nextPageToken === true) {
-      nextPageToken = "";
-    }
-    res = await client.playlistItems.list({
-      part: ["contentDetails,snippet"],
-      maxResults: 50,
-      playlistId: "PLRct1-5In-8Ewg5Kq-0JP8wh3ZweOXH9A",
-      pageToken: nextPageToken,
-    });
-    let ids = res.data.items
-      .map((item) => item.contentDetails.videoId)
-      .join(",");
-    res2 = await client.videos.list({
+  for (let i3 = 0; i3 < rawItems.length; i3++) {
+    const itemGroup = rawItems[i3];
+    let ids = itemGroup.map((item) => item.contentDetails.videoId).join(",");
+    res = await client.videos.list({
       part: ["contentDetails"],
       maxResults: 50,
       id: ids,
     });
     let i2 = 0;
-    for (let i = 0; i < res.data.items.length; i++) {
-      if ("videoPublishedAt" in res.data.items[i].contentDetails) {
-        d = parse(res2.data.items[i2].contentDetails.duration);
+    for (let i = 0; i < itemGroup.length; i++) {
+      if ("videoPublishedAt" in itemGroup[i].contentDetails) {
+        d = parse(res.data.items[i2].contentDetails.duration);
         let seconds = 0;
         if ("seconds" in d) {
           seconds = d.seconds;
@@ -53,21 +46,19 @@ exports.handler = async function (event, context) {
           d.seconds = 0;
         }
         items.push({
-          id: res.data.items[i].contentDetails.videoId,
-          title: res.data.items[i].snippet.title,
-          thumbnail: res.data.items[i].snippet.thumbnails.high.url,
-          channel: res.data.items[i].snippet.videoOwnerChannelTitle,
-          channelId: res.data.items[i].snippet.videoOwnerChannelId,
+          id: itemGroup[i].contentDetails.videoId,
+          title: itemGroup[i].snippet.title,
+          thumbnail: itemGroup[i].snippet.thumbnails.high.url,
+          channel: itemGroup[i].snippet.videoOwnerChannelTitle,
+          channelId: itemGroup[i].snippet.videoOwnerChannelId,
           duration: d.minutes + ":" + d.seconds.toString().padStart(2, "0"),
         });
         duration += seconds;
         i2++;
       }
     }
-    nextPageToken = res.data.nextPageToken;
   }
 
-  await redis.connect();
   await redis.set("items", JSON.stringify(items));
   await redis.set("last updated", Date.now().toString());
   await redis.set("duration", duration.toString());
