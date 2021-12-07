@@ -43,7 +43,7 @@ exports.handler = async function (event, context) {
         if ("minutes" in d) {
           seconds += d.minutes * 60;
         } else {
-          d.seconds = 0;
+          d.minutes = 0;
         }
         items.push({
           id: itemGroup[i].contentDetails.videoId,
