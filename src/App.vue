@@ -4,7 +4,7 @@ import Songs from './components/Songs.vue';
 
 <template>
   <div class="min-h-screen bg-[#8A8A8A]">
-    <div class="py-14 flex flex-col items-center">
+    <div class="pt-14 mb-7 flex flex-col items-center">
       <h1 class="text-white font-serif text-5xl">songs</h1>
       <h2 class="text-white italic text-3xl font-light my-1">the best music playlist</h2>
       <h3 class="text-white font-cursive text-xl">
