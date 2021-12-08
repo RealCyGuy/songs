@@ -12,14 +12,14 @@ seconds = seconds - (hours * 3600) - (minutes * 60);
 
 <template>
     <div class="flex flex-col items-center px-1 sm:px-10">
-        <div class="max-w-xl w-full">
+        <div class="max-w-xl w-full mb-7">
             <p class="text-white w-full">{{ data.items.length }} songs</p>
             <p
                 class="text-white w-full"
             >{{ hours }} hours, {{ minutes }} minutes, {{ seconds }} seconds total time</p>
             <p class="text-white w-full">or {{ (duration / 864.00).toFixed(4) }}% of a day,</p>
             <p class="text-white w-full">which is {{ (duration / 6048.00).toFixed(4) }}% of a week,</p>
-            <p class="text-white w-full mb-2">and {{ (duration / 315569.52).toFixed(4) }}% of a year!</p>
+            <p class="text-white w-full">and {{ (duration / 315569.52).toFixed(4) }}% of a year!</p>
         </div>
         <Song v-for="song in data.items" :song="song" />
     </div>
