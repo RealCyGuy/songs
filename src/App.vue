@@ -8,9 +8,9 @@ import Songs from './components/Songs.vue';
       <h1 class="text-white font-serif text-5xl">songs</h1>
       <h2 class="text-white italic text-3xl font-light my-1">the best music playlist</h2>
       <h3 class="text-white font-cursive text-xl">
-        <a href="https://www.youtube.com/playlist?list=PLRct1-5In-8Ewg5Kq-0JP8wh3ZweOXH9A">youtube</a> -
-        <a href="https://github.com/realcyguy/songs">github</a> -
-        <a href="https://realcyguy.netlify.app">cyrus yip</a>
+        <a class="hover:text-gray-200" href="https://www.youtube.com/playlist?list=PLRct1-5In-8Ewg5Kq-0JP8wh3ZweOXH9A">youtube</a> -
+        <a class="hover:text-gray-200" href="https://github.com/realcyguy/songs">github</a> -
+        <a class="hover:text-gray-200" href="https://realcyguy.netlify.app">cyrus yip</a>
       </h3>
     </div>
     <suspense>
