@@ -42,7 +42,7 @@ function typing(value) {
             >Download</a>
         </div>
         <div class="w-full mb-5 shadow-lg bg-[#a9a9a9] p-3">
-            <p class="text-white w-full">{{ data.items.length }} songs</p>
+            <p class="text-white w-full">{{ data.items.length }} songs ({{ filtered.length }} results)</p>
             <p
                 class="text-white w-full"
             >{{ hours }} hours, {{ minutes }} minutes, {{ seconds }} seconds total time</p>
