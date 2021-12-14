@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="mb-3 p-3 sm:p-5 bg-[#C4C4C4] rounded-lg max-w-xl w-full shadow-2xl flex flex-row">
+    <div class="mb-3 p-3 sm:p-5 bg-[#C4C4C4] rounded-lg max-w-2xl w-full shadow-2xl flex flex-row">
         <a
             :href="'https://www.youtube.com/watch?v=' + song.id + '&list=PLRct1-5In-8Ewg5Kq-0JP8wh3ZweOXH9A'"
             class="w-[120px] h-[67px] sm:w-[180px] sm:h-[100px] mr-5 flex-none my-2 sm:my-0 relative"

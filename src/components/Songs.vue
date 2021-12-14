@@ -12,7 +12,7 @@ seconds = seconds - (hours * 3600) - (minutes * 60);
 
 <template>
     <div class="flex flex-col items-center px-1 sm:px-10">
-        <div class="max-w-xl w-full mb-7">
+        <div class="max-w-2xl w-full mb-7">
             <p class="text-white w-full">{{ data.items.length }} songs</p>
             <p
                 class="text-white w-full"
