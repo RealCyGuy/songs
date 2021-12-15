@@ -15,7 +15,7 @@ defineProps({
             <VLazyImage
                 :src="song.thumbnail"
                 src-placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN0/A8AAYcBQqKIKZoAAAAASUVORK5CYII="
-                class="object-cover w-full h-full rounded"
+                class="object-cover w-full h-full rounded hover:opacity-80 duration-500"
             />
             <p class="absolute right-1 bottom-1 bg-gray-400 w-10 text-center text-sm text-white rounded shadow-xl">{{ song.duration }}</p>
         </a>
