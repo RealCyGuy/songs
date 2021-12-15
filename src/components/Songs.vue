@@ -37,7 +37,7 @@ function typing(value) {
                 @keyup="typing($event.target.value)"
             />
             <a
-                class="py-2 px-5 text-white bg-[#6600E8] rounded-lg"
+                class="py-2 px-5 text-white bg-[#6600E8] rounded-lg hover:bg-white hover:text-black hover:rounded-none duration-500"
                 href="https://gist.github.com/RealCyGuy/43291c70392ca6ee335a6871175a54c8"
             >Download</a>
         </div>
