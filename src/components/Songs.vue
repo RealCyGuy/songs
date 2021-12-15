@@ -32,23 +32,23 @@ function typing(value) {
         <div class="flex justify-between w-full mb-5">
             <input
                 type="text"
-                class="rounded-full px-5 w-1/2 shadow-lg outline-none focus:ring-4 ring-offset-2 ring-offset-[#8A8A8A] ring-[#6b6b6b]"
+                class="rounded-full px-5 w-1/2 outline-none from-[#7147b4] to-[#2a2cc4] bg-gradient-to-r text-white placeholder-gray-300"
                 placeholder="Search..."
                 @keyup="typing($event.target.value)"
             />
             <a
-                class="py-2 px-5 text-white from-[#6600E8] to-[#7102C8] bg-gradient-to-br rounded-lg shadow-lg"
+                class="py-2 px-5 text-white bg-[#6600E8] rounded-lg"
                 href="https://gist.github.com/RealCyGuy/43291c70392ca6ee335a6871175a54c8"
             >Download</a>
         </div>
-        <div class="w-full mb-5 shadow-lg bg-[#a9a9a9] p-3">
-            <p class="text-white w-full">{{ data.items.length }} songs ({{ filtered.length }} results)</p>
+        <div class="w-full mb-5 p-3">
+            <p class="text-[#c7ddf5] w-full"><span class="text-white">{{ data.items.length }}</span> songs (<span class="text-white">{{ filtered.length }}</span> results)</p>
             <p
-                class="text-white w-full"
-            >{{ hours }} hours, {{ minutes }} minutes, {{ seconds }} seconds total time</p>
-            <p class="text-white w-full">or {{ (duration / 864.00).toFixed(4) }}% of a day,</p>
-            <p class="text-white w-full">which is {{ (duration / 6048.00).toFixed(4) }}% of a week,</p>
-            <p class="text-white w-full">and {{ (duration / 315569.52).toFixed(4) }}% of a year!</p>
+                class="text-[#c7ddf5] w-full"
+            ><span class="text-white">{{ hours }}</span> hours, <span class="text-white">{{ minutes }}</span> minutes, <span class="text-white">{{ seconds }}</span> seconds total time</p>
+            <p class="text-[#c7ddf5] w-full">or <span class="text-white">{{ (duration / 864.00).toFixed(4) }}%</span> of a day,</p>
+            <p class="text-[#c7ddf5] w-full">which is <span class="text-white">{{ (duration / 6048.00).toFixed(4) }}%</span> of a week,</p>
+            <p class="text-[#c7ddf5] w-full">and <span class="text-white">{{ (duration / 315569.52).toFixed(4) }}%</span> of a year!</p>
         </div>
         <Song v-for="song in filtered" :song="song" :key="song.id" />
     </div>
