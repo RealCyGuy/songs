@@ -32,7 +32,7 @@ function typing(value) {
         <div class="flex justify-between w-full mb-5">
             <input
                 type="text"
-                class="rounded-full px-5 w-1/2 outline-none from-[#7147b4] to-[#2a2cc4] bg-gradient-to-r text-white placeholder-gray-300"
+                class="rounded-full px-5 w-1/2 outline-none from-[#7147b4] to-[#2a2cc4] bg-gradient-to-r text-white placeholder-gray-300 focus:from-[#8555d3] focus:to-[#3437e2]"
                 placeholder="Search..."
                 @keyup="typing($event.target.value)"
             />
