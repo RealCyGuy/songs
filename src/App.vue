@@ -6,7 +6,7 @@ const backgroundPosition = ref("50% 0%")
 const style = reactive({ backgroundPosition });
 
 window.onscroll = function () {
-  backgroundPosition.value = "50% " + ((window.innerHeight - window.scrollY) * 0.3) + "px";
+  backgroundPosition.value = "50% " + ((window.innerHeight - window.scrollY) * 0.5) + "px";
   console.log(backgroundPosition.value);
 };
 
