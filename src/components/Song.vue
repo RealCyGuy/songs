@@ -22,7 +22,7 @@ defineProps({
         <div class="flex flex-col justify-between">
             <a
                 :href="'https://www.youtube.com/watch?v=' + song.id + '&list=PLRct1-5In-8Ewg5Kq-0JP8wh3ZweOXH9A'"
-                class="text-white text-xs sm:text-base hover:text-blue-100"
+                class="text-white text-xs sm:text-base hover:text-blue-200"
             >{{ song.title }}</a>
             <a
                 :href="'https://www.youtube.com/channel/' + song.channelId"
