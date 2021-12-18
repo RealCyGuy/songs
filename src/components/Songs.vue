@@ -15,7 +15,7 @@ seconds = seconds - (hours * 3600) - (minutes * 60);
 
 var filtered = computed(() => {
     return data.items.filter(song => {
-        return song.title.toLowerCase().includes(search.value);
+        return song.title.toLowerCase().includes(search.value) || song.channel.toLowerCase().includes(search.value);
     });
 });
 
