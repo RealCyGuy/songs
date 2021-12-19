@@ -19,7 +19,7 @@ defineProps({
             />
             <p class="absolute right-1 bottom-1 bg-gray-400 w-10 text-center text-sm text-white rounded shadow-xl">{{ song.duration }}</p>
         </a>
-        <div class="flex flex-col justify-between">
+        <div class="flex flex-col justify-between items-start">
             <a
                 :href="'https://www.youtube.com/watch?v=' + song.id + '&list=PLRct1-5In-8Ewg5Kq-0JP8wh3ZweOXH9A'"
                 class="text-white text-xs sm:text-base hover:text-blue-200"
