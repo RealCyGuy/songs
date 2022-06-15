@@ -1,22 +1,9 @@
 <script setup>
 import Songs from './components/Songs.vue';
-import { reactive, ref } from "vue";
-
-const backgroundPosition = ref("50% 0%")
-const style = reactive({ backgroundPosition });
-
-window.onscroll = function () {
-  window.requestAnimationFrame(() => {
-    backgroundPosition.value = "50% " + ((window.innerHeight - window.scrollY) * 0.5) + "px";
-  });
-  console.log(backgroundPosition.value);
-};
-
-window.onscroll();
 </script>
 
 <template>
-  <div class="main min-h-screen from-[#212672] to-[#571a8a] bg-repeat bg-fixed backdrop-blur-xl" :style="style">
+  <div class="main min-h-screen from-[#212672] to-[#571a8a] bg-repeat backdrop-blur-xl">
     <div class="pt-14 mb-7 flex flex-col items-center">
       <h1 class="text-white font-serif text-5xl">songs</h1>
       <h2 class="text-white italic text-3xl font-light my-1">the best music playlist</h2>
