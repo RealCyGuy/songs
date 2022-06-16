@@ -10,10 +10,16 @@ const format = new Intl.DateTimeFormat("en-US", {
     minute: "numeric",
 });
 
-var search = ref("");
+const search = ref("");
 var timer;
 
 const data = await fetch("/.netlify/functions/getdb").then(res => res.json());
+data.items.forEach(item => {
+    item.publishedDate = new Date(item.publishedDate);
+    item.addedDate = new Date(item.addedDate);
+    item.rawLikes = parseInt(item.likes.replaceAll(",", ""));
+    item.rawViews = parseInt(item.views.replaceAll(",", ""));
+});
 console.log(data);
 const duration = parseInt(data.duration);
 var seconds = duration;
@@ -33,6 +39,58 @@ function typing(value) {
         search.value = value.toLowerCase();
     }, 200);
 }
+
+const selected = ref("Date added");
+const ascending = ref("Ascending");
+
+function sorted(items) {
+    items = [...items];
+    switch (selected.value) {
+        // "Date added" is assumed to be sorted by YouTube.
+        case "Date created":
+            items.sort((a, b) => {
+                return a.publishedDate - b.publishedDate;
+            });
+            break;
+        case "Title":
+            items.sort((a, b) => {
+                return a.title.localeCompare(b.title);
+            });
+            break;
+        case "Channel":
+            items.sort((a, b) => {
+                return a.channel.localeCompare(b.channel);
+            });
+            break;
+        case "Views":
+            items.sort((a, b) => {
+                return a.rawViews - b.rawViews;
+            });
+            break;
+        case "Likes":
+            items.sort((a, b) => {
+                return a.rawLikes - b.rawLikes;
+            });
+            break;
+        case "Random":
+            let currentIndex = items.length, randomIndex;
+
+            while (currentIndex != 0) {
+
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                [items[currentIndex], items[randomIndex]] = [
+                    items[randomIndex], items[currentIndex]];
+            }
+            return items;
+    }
+    if (ascending.value == "Ascending") {
+        return items;
+    } else {
+        return items.reverse();
+    }
+}
 </script>
 
 <template>
@@ -44,7 +102,7 @@ function typing(value) {
             <a class="py-2 px-5 text-white bg-[#6600E8] rounded-lg hover:bg-white hover:text-black hover:rounded-none duration-500"
                 href="https://gist.github.com/RealCyGuy/43291c70392ca6ee335a6871175a54c8">Download</a>
         </div>
-        <div class="w-full mb-5 p-3">
+        <div class="w-full p-3">
             <p class="text-[#c7ddf5] w-full"><span class="text-white">{{ data.items.length }}</span> songs (<span
                     class="text-white">{{ filtered.length }}</span> results)</p>
             <p class="text-[#c7ddf5] w-full"><span class="text-white">{{ hours }}</span> hours, <span
@@ -57,6 +115,32 @@ function typing(value) {
             <p class="text-[#c7ddf5] w-full">and <span class="text-white">{{ (duration / 315569.52).toFixed(4)
             }}%</span> of a year!</p>
         </div>
-        <Song v-for="song in filtered" :song="song" :key="song.id" :format="format" />
+        <div class="w-full mb-5">
+            <label for="sort" class="text-white mr-2">Sort by:</label>
+            <div class="inline-block bg-purple-800 from-[#7147b4] to-[#2a2cc4] bg-gradient-to-r rounded-md">
+                <div
+                    class="inline-block relative after:content-['▼'] after:absolute after:right-1 after:bottom-2 after:text-white after:z-0">
+                    <select name="sort" v-model="selected"
+                        class="relative z-10 pl-3 pr-7 py-2 appearance-none bg-transparent text-white">
+                        <option class="bg-purple-800">Date added</option>
+                        <option class="bg-purple-800">Date created</option>
+                        <option class="bg-purple-800">Title</option>
+                        <option class="bg-purple-800">Channel</option>
+                        <option class="bg-purple-800">Views</option>
+                        <option class="bg-purple-800">Likes</option>
+                        <option class="bg-purple-800">Random</option>
+                    </select>
+                </div>
+                <div
+                    class="inline-block relative after:content-['▼'] after:absolute after:right-2 after:bottom-2 after:text-white after:z-0">
+                    <select v-model="ascending"
+                        class="relative z-10 pl-3 pr-8 py-2 appearance-none bg-transparent text-white">
+                        <option class="bg-purple-800">Ascending</option>
+                        <option class="bg-purple-800">Descending</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <Song v-for="song in sorted(filtered)" :song="song" :key="song.id" :format="format" />
     </div>
 </template>

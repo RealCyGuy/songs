@@ -34,7 +34,7 @@ defineProps({
         </div>
         <div class="mt-2">
             <p class="text-white">{{ song.views }} views · {{ song.likes }} likes</p>
-            <p class="text-white">Published {{ format.format(new Date(song.publishedDate)) }} · Added {{ format.format(new Date(song.addedDate)) }}</p>
+            <p class="text-white">Published {{ format.format(song.publishedDate) }} · Added {{ format.format(song.addedDate) }}</p>
         </div>
     </div>
 </template>
