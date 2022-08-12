@@ -3,14 +3,6 @@ import Song from "./Song.vue";
 import { computed, ref } from "vue";
 import getdb from "../getdb.js";
 
-const format = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-});
-
 const search = ref("");
 var timer;
 
@@ -139,6 +131,6 @@ function sorted(items) {
                 </div>
             </div>
         </div>
-        <Song v-for="song in sorted(filtered)" :song="song" :key="song.id" :format="format" />
+        <Song v-for="song in sorted(filtered)" :song="song" :key="song.id" />
     </div>
 </template>

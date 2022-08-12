@@ -3,7 +3,6 @@ import VLazyImage from "v-lazy-image";
 
 defineProps({
     song: Object,
-    format: Intl.DateTimeFormat,
 });
 </script>
 
@@ -34,7 +33,7 @@ defineProps({
         </div>
         <div class="mt-2">
             <p class="text-white">{{ song.views }} views · {{ song.likes }} likes</p>
-            <p class="text-white">Published {{ format.format(song.publishedDate) }} · Added {{ format.format(song.addedDate) }}</p>
+            <p class="text-white">Published {{ song.formattedPublishedDate }} · Added {{ song.formattedAddedDate }}</p>
         </div>
     </div>
 </template>
