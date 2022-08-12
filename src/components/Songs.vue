@@ -40,10 +40,14 @@ const ascending = ref("Ascending");
 function sorted(items) {
     items = [...items];
     switch (selected.value) {
-        // "Date added" is assumed to be sorted by YouTube.
+        case "Date added":
+            items.sort((a, b) => {
+                return b.addedDate - a.addedDate;
+            });
+            break;
         case "Date created":
             items.sort((a, b) => {
-                return a.publishedDate - b.publishedDate;
+                return b.publishedDate - a.publishedDate;
             });
             break;
         case "Title":
