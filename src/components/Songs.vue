@@ -1,6 +1,7 @@
 <script setup>
 import Song from "./Song.vue";
 import { computed, ref } from "vue";
+import store from "../getdb.js";
 
 const format = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
@@ -13,14 +14,7 @@ const format = new Intl.DateTimeFormat("en-US", {
 const search = ref("");
 var timer;
 
-const data = await fetch("/.netlify/functions/getdb").then(res => res.json());
-data.items.forEach(item => {
-    item.publishedDate = new Date(item.publishedDate);
-    item.addedDate = new Date(item.addedDate);
-    item.rawLikes = parseInt(item.likes.replaceAll(",", ""));
-    item.rawViews = parseInt(item.views.replaceAll(",", ""));
-});
-console.log(data);
+const data = await store();
 const duration = parseInt(data.duration);
 var seconds = duration;
 var hours = Math.floor(seconds / 3600);
