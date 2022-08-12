@@ -5,3 +5,7 @@
   directory = "functions/"
 [dev]
   command = "vite"
+[[redirects]]
+  from = "/*"
+  to = "/"
+  code = "200"

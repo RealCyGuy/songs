@@ -2,18 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎼</text></svg>">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎼</text></svg>"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>songs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Martel&family=Montserrat:ital,wght@0,400;1,300&family=Parisienne&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Martel&family=Montserrat:ital,wght@0,400;0,700;1,300&family=Parisienne&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <div id="app"></div>
+    <div
+      id="app"
+      class="main min-h-screen from-[#212672] to-[#571a8a] bg-repeat backdrop-blur-xl text-white"
+    >
+      <router-view></router-view>
+    </div>
     <script type="module" src="/src/main.js"></script>
+    <style>
+      .main {
+        background-image: url("src/assets/bg.svg");
+      }
+    </style>
   </body>
 </html>

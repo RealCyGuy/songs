@@ -1,13 +1,13 @@
 <script setup>
-import Songs from './components/Songs.vue';
+import Songs from '../components/Songs.vue';
 </script>
 
 <template>
-  <div class="main min-h-screen from-[#212672] to-[#571a8a] bg-repeat backdrop-blur-xl">
+  <div>
     <div class="pt-14 mb-7 flex flex-col items-center">
-      <h1 class="text-white font-serif text-5xl">songs</h1>
-      <h2 class="text-white italic text-3xl font-light my-1">the best music playlist</h2>
-      <h3 class="text-white font-cursive text-xl">
+      <h1 class="font-serif text-5xl">songs</h1>
+      <h2 class="italic text-3xl font-light my-1 text-center">the best music playlist</h2>
+      <h3 class="font-cursive text-xl">
         <a
           class="hover:text-gray-200"
           href="https://www.youtube.com/playlist?list=PLRct1-5In-8Ewg5Kq-0JP8wh3ZweOXH9A"
@@ -22,7 +22,7 @@ import Songs from './components/Songs.vue';
       </template>
       <template #fallback>
         <div>
-          <h3 class="text-white text-center">Loading the epic songs...</h3>
+          <h3 class="text-center">Loading the epic songs...</h3>
           <div class="spinner mx-auto mt-10">
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>
@@ -34,10 +34,6 @@ import Songs from './components/Songs.vue';
 </template>
 
 <style>
-.main {
-  background-image: url("assets/bg.svg");
-}
-
 .spinner {
   width: 40px;
   height: 40px;

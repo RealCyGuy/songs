@@ -97,9 +97,9 @@ function sorted(items) {
     <div class="flex flex-col items-center px-3 sm:px-10 max-w-2xl w-full mx-auto">
         <div class="flex justify-between w-full mb-5">
             <input type="text"
-                class="rounded-full px-5 w-1/2 outline-none from-[#7147b4] to-[#2a2cc4] bg-gradient-to-r text-white placeholder-gray-300 focus:from-[#9664e7] focus:to-[#5154e7] hover:from-[#8154c9] hover:to-[#2124da]"
+                class="rounded-full px-5 w-1/2 outline-none from-[#7147b4] to-[#2a2cc4] bg-gradient-to-r placeholder-gray-300 focus:from-[#9664e7] focus:to-[#5154e7] hover:from-[#8154c9] hover:to-[#2124da]"
                 placeholder="Search..." @keyup="typing($event.target.value)" />
-            <a class="py-2 px-5 text-white bg-[#6600E8] rounded-lg hover:bg-white hover:text-black hover:rounded-none duration-500"
+            <a class="py-2 px-5 bg-[#6600E8] rounded-lg hover:bg-white hover:text-black hover:rounded-none duration-500"
                 href="https://gist.github.com/RealCyGuy/43291c70392ca6ee335a6871175a54c8">Download</a>
         </div>
         <div class="w-full p-3">
@@ -116,12 +116,12 @@ function sorted(items) {
             }}%</span> of a year!</p>
         </div>
         <div class="w-full mb-5">
-            <label for="sort" class="text-white mr-2">Sort by:</label>
+            <label for="sort" class="mr-2">Sort by:</label>
             <div class="inline-block bg-purple-800 from-[#7147b4] to-[#2a2cc4] bg-gradient-to-r rounded-md">
                 <div
-                    class="inline-block relative after:content-['▼'] after:absolute after:right-1 after:bottom-2 after:text-white after:z-0">
+                    class="inline-block relative after:content-['▼'] after:absolute after:right-1 after:bottom-2 after:z-0">
                     <select name="sort" v-model="selected"
-                        class="relative z-10 pl-3 pr-7 py-2 appearance-none bg-transparent text-white">
+                        class="relative z-10 pl-3 pr-7 py-2 appearance-none bg-transparent">
                         <option class="bg-purple-800">Date added</option>
                         <option class="bg-purple-800">Date created</option>
                         <option class="bg-purple-800">Title</option>
@@ -132,9 +132,9 @@ function sorted(items) {
                     </select>
                 </div>
                 <div
-                    class="inline-block relative after:content-['▼'] after:absolute after:right-2 after:bottom-2 after:text-white after:z-0">
+                    class="inline-block relative after:content-['▼'] after:absolute after:right-2 after:bottom-2 after:z-0">
                     <select v-model="ascending"
-                        class="relative z-10 pl-3 pr-8 py-2 appearance-none bg-transparent text-white">
+                        class="relative z-10 pl-3 pr-8 py-2 appearance-none bg-transparent">
                         <option class="bg-purple-800">Ascending</option>
                         <option class="bg-purple-800">Descending</option>
                     </select>
