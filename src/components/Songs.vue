@@ -1,7 +1,7 @@
 <script setup>
 import Song from "./Song.vue";
 import { computed, ref } from "vue";
-import store from "../getdb.js";
+import getdb from "../getdb.js";
 
 const format = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
@@ -14,7 +14,7 @@ const format = new Intl.DateTimeFormat("en-US", {
 const search = ref("");
 var timer;
 
-const data = await store();
+const data = await getdb();
 const duration = parseInt(data.duration);
 var seconds = duration;
 var hours = Math.floor(seconds / 3600);
