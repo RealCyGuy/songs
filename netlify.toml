@@ -5,7 +5,7 @@
   directory = "functions/"
 [dev]
   command = "vite"
-[[redirects]]
+[[aredirects]]
   from = "/*"
   to = "/index.html"
   status = 200

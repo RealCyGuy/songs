@@ -54,12 +54,12 @@ function sorted(items) {
             break;
         case "Views":
             items.sort((a, b) => {
-                return a.rawViews - b.rawViews;
+                return a.views - b.views;
             });
             break;
         case "Likes":
             items.sort((a, b) => {
-                return a.rawLikes - b.rawLikes;
+                return a.likes - b.likes;
             });
             break;
         case "Random":

@@ -32,7 +32,7 @@ defineProps({
             </div>
         </div>
         <div class="mt-2">
-            <p class="text-white">{{ song.views }} views · {{ song.likes }} likes</p>
+            <p class="text-white">{{ song.formattedViews }} views · {{ song.formattedLikes }} likes</p>
             <p class="text-white">Published {{ song.formattedPublishedDate }} · Added {{ song.formattedAddedDate }}</p>
         </div>
     </div>
