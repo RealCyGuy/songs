@@ -34,12 +34,12 @@ function sorted(items) {
     switch (selected.value) {
         case "Date added":
             items.sort((a, b) => {
-                return b.addedDate - a.addedDate;
+                return a.addedDate - b.addedDate;
             });
             break;
         case "Date created":
             items.sort((a, b) => {
-                return b.publishedDate - a.publishedDate;
+                return a.publishedDate - b.publishedDate;
             });
             break;
         case "Title":
