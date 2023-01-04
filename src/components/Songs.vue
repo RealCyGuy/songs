@@ -125,8 +125,8 @@ function sorted(items) {
                     class="inline-block relative after:content-['▼'] after:absolute after:right-2 after:bottom-2 after:z-0">
                     <select v-model="ascending"
                         class="relative z-10 pl-3 pr-8 py-2 appearance-none bg-transparent">
-                        <option class="bg-purple-800">Descending</option>
                         <option class="bg-purple-800">Ascending</option>
+                        <option class="bg-purple-800">Descending</option>
                     </select>
                 </div>
             </div>
