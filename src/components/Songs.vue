@@ -1,7 +1,7 @@
 <script setup>
-import Song from "./Song.vue";
 import { computed, ref } from "vue";
 import getdb from "../getdb.js";
+import Song from "./Song.vue";
 
 const search = ref("");
 var timer;
@@ -68,6 +68,11 @@ function sorted(items) {
     case "Added - Created":
       items.sort((a, b) => {
         return a.addedDate - a.publishedDate - (b.addedDate - b.publishedDate);
+      });
+      break;
+    case "Duration":
+      items.sort((a, b) => {
+        return a.duration.localeCompare(b.duration);
       });
       break;
     case "Random":
@@ -159,6 +164,7 @@ function sorted(items) {
             <option class="bg-purple-800">Views</option>
             <option class="bg-purple-800">Likes</option>
             <option class="bg-purple-800">Added - Created</option>
+            <option class="bg-purple-800">Duration</option>
             <option class="bg-purple-800">Random</option>
           </select>
         </div>
